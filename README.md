@@ -3,6 +3,8 @@ AI web project news classification
 
 
 ==========================Instructions for installation and use=======================================
+
+
 1.Install the python environment on your computer
 2. Install visual studio code
 3.Clone the project from the repo to your computer with the command "git clone https://github.com/tienvanbui/News-Classifycation.git"
@@ -21,7 +23,9 @@ AI web project news classification
 
 
 
-=======================================Hướng dẫn cài đặt và sử dụng===========================================================
+==========================Hướng dẫn cài đặt và sử dụng========================================
+
+
 1.Cài đặt môi trường python trên máy tính
 2.Cài đặt visual studio code 
 3.Clone project từ trên repo về máy bằng câu lệnh "git clone https://github.com/tienvanbui/News-Classifycation.git"
