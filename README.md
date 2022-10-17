@@ -31,9 +31,7 @@ AI web project news classification
 -pip install keras
 -pip install tensorflow
 
-
 8. On the terminal background run the command "py manage.py runserver"
-
 
 9. Good luck!
 
