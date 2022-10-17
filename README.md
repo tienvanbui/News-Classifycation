@@ -1,5 +1,7 @@
 # News-Classifycation
 AI web project news classification
+
+
 ==========================Instructions for installation and use=======================================
 1.Install the python environment on your computer
 2. Install visual studio code
@@ -16,6 +18,9 @@ AI web project news classification
 -pip install tensorflow
 7. On the terminal background run the command "py manage.py runserver"
 8. Good luck!
+
+
+
 =======================================Hướng dẫn cài đặt và sử dụng===========================================================
 1.Cài đặt môi trường python trên máy tính
 2.Cài đặt visual studio code 
