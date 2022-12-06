@@ -1,3 +1,5 @@
+from re import S
+from unicodedata import category
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
@@ -19,6 +21,12 @@ import numpy as np  # linear algebra
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view
+from .serializers import GetAllNewsSerializer
+from .models import News
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # sử dụng bộ lọc kí tự đặc biệt
@@ -46,6 +54,8 @@ def getSetData():
 
 def index(request):
     return render(request, 'home.html')
+def index1(request):
+    return render(request, 'index.html')
 
 
 def predictWithNavieBayesModel(request):
@@ -85,3 +95,25 @@ def preprocessDataset(train_text):
     lem_input = nltk.word_tokenize(stem_text)
     lem_text = ' '.join([w for w in lem_input])
     return lem_text
+
+class GetAllNewsAPIView(APIView):
+    def get(self, request):
+        list_new = News.objects.raw('SELECT * FROM News')
+        mydata = GetAllNewsSerializer(list_new,many=True)
+        return Response(data=mydata.data,status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def news_list_category(request,pk):
+    try:
+        sql = "SELECT * FROM News n where n.category = " + pk;
+        print(sql)
+        news = News.objects.raw(sql)
+    except News.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = GetAllNewsSerializer(news,many=True)
+        return Response(serializer.data)
+
+
+
