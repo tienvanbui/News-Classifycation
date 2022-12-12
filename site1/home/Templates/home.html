@@ -40,18 +40,14 @@
         <table class="table" >
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Images</th>
-                <th scope="col">Name</th>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Link</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td><img src="{% static 'images/ajax-loader.gif' %}" style="height:300px"></td>
-                <td>New UK finance minister rips up Truss’ economic plan in stunning policy reversal
-                </td>
-              </tr>
+              
             </tbody>
           </table>
     </div>
@@ -61,6 +57,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    newData = [];
     $(document).ready(function() {
         $("#classify").on("click", function(){
             var news = $("#paragraph").val();
@@ -86,8 +83,43 @@
                     $("#result").text(response.category);
                     $("#category").text(response.category);
                     $('.table_of-category').show();
+                    links = 'http://127.0.0.1:8000/api/news/"'+ response.category + '"';
+                    console.log(links);
+                    getListNews(links);
+                    
                 }
             });
         });
     });
+    
+    function getListNews(links){
+        $.ajax({
+                        type: 'GET',
+                        dataType:"json",
+                        url: links,
+                        
+                        success: function (data, status, xhr) {
+                            newData = data;
+                            console.log('data: ', newData);
+                            $('tbody').empty();
+                            fillNewsToTable();
+                        }
+                        });
+    }
+
+    function fillNewsToTable(){
+        console.log('newdata: ',newData);
+        newData.forEach(function (item) {
+            $('tbody').append(
+                '<tr>' +
+                '<td>' + item.id + '</td>' +
+                '<td>' + item.title + '</td>' +
+                '<td>' + item.content + '</td>' +
+                '<td><a href=' + item.link + '>link</a></td>' +
+                '<tr>'
+            )
+        });
+    }
 </script>
+
+
