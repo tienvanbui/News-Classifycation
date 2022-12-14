@@ -1,0 +1,105 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+    <link rel="shortcut icon">
+    <link type="text/css" href="{%static 'css/dangnhap.css'%}" rel="stylesheet">
+    <script src="{%static 'js/dangnhap.js'%}"></script>
+    <meta charset="utf-8">
+    <title>Login</title>
+</head>
+
+<body bgcolor="#EFF0F5">
+    <div id="wrap">
+        <div id="header"> <br>
+            <h2 class="h2">Website ENews</h2>
+
+            <!-- <form>
+    <select name="nn">
+      <option value="Vn">VN</option>
+      <option value="ENG">ENG</option>
+    </select>
+  </form>
+ -->
+            <form>
+                <input type="text" name="search" placeholder="Tìm bài viết, sản phẩm...">
+            </form>
+        </div>
+        <div id="menu">
+            <ul>
+                <h3>
+                    <li> <a href="home" id="a1"> HOME</a></li>
+                    <li> <a href="phanloai" id="a1"> Classify </a> </li>
+
+                </h3>
+            </ul>
+        </div>
+        <br>
+        <div id="contend"> <br>
+            <div class="divtk"><strong>Chào mừng đến với ICT. Đăng nhập ngay! </strong></div>
+            <div class="divtk2">Bạn chưa có tài khoản ? <a href="dangky">Đăng ký</a> ngay.</div>
+            <br>
+            <br>
+            <div id="contend1">
+                <br>
+                <form action="" method="post" name="dangky" onSubmit="return KiemTra()">
+                    Tên đăng nhập :<br>
+                    <label for="txtTenDN"></label>
+                    <input name="txtTenDN" type="text" id="txtTenDN" size="20">
+                    <br> Mật khẩu : <br>
+                    <label for="txtMatKhau"></label>
+                    <input name="txtMatKhau" type="password" id="txtMatKhau" size="20">
+                    <br>
+                    <p> <a href="#"> Quên mật khẩu ? </a> </p>
+
+
+            </div>
+            <div id="contend2">
+                <br>
+                <br>
+
+                <input type="submit" name="btnDangKy" id="btnDangKy" value="Đăng nhập" />
+                <!-- <input type="reset" name="btnBoQua" id="btnBoQua" value="Bỏ qua" />-->
+                <br>Hoặc đăng nhập với :
+                <input type="reset" name="o" id="o" value="Đăng nhập bằng Gmail" />
+                </form>
+                <img src="{%static 'images/fb.png'%}" width="150" height="41">
+                <img src="{%static 'images/gg.png'%}" width="150" height="40"></div>
+        </div>
+        <div id="footer">
+            <div class="divft1">
+                <p>&nbsp;</p>
+                <p><a href="home"> TRANG CHỦ</a></p>
+            </div>
+            <div class="divft">
+                <h4>ENEWS-HDU </h4>
+                <a href="#">Tech</a> <br>
+                <a href="#">Business</a> <br>
+                <a href="#">Media</a> <br>
+                <a href="#">Travel</a> <br>
+                <a href="#">Weather</a><br>
+                <a href="#">Sport</a> <br>
+                <a href="#">Films</a> <br>
+            </div>
+            <div class="divft">
+                <h4>LIÊN KẾT </h4>
+                <a href="#">NEWS</a> <br>
+                <a href="#">BREAKINGS NEWS</a> <br>
+                <a href="#">Google</a> </div>
+            <div class="divft">
+                <h4>VỀ CHÚNG TÔI</h4>
+                <a href="#"> Facebook</a> <br>
+                <a href="#"> Youtube</a> <br>
+                <a href="#"> Google</a> <br>
+                <a href="#"> Skype</a> </div>
+            <div class="divft2"> <br>
+                <hr>
+                <br>
+                <h4> Nhóm thực hiện KHMT2-K14 <br>
+                </h4>
+            </div>
+        </div>
+</body>
+
+</html>

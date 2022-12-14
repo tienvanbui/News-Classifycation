@@ -56,6 +56,12 @@ def index(request):
     return render(request, 'home.html')
 def index1(request):
     return render(request, 'index.html')
+def index_home(request):
+    return render(request, 'index.html')
+def dangnhap(request):
+    return render(request, 'dangnhap.html')
+def dangky(request):
+    return render(request, 'dangki.html')
 
 
 def predictWithNavieBayesModel(request):
