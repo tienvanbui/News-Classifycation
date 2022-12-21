@@ -175,7 +175,7 @@ function fillData(newData){
     
     newData.forEach(function (item) {
         $("#listSport").append(
-            '<a href=' +  item.url +'>' + item.title + '</a>'+
+            '<a href=' +  item.link +'>' + item.title + '</a>'+
                             '<hr></hr>'
         )
     });
@@ -202,10 +202,10 @@ function fillTech(newData){
     i = 0;
     newData.forEach(function (item) {
         img = 'static/images/'+item.img;
-        console.log(img)
+        
         $("#technews").append(
             '<div id="r1"> <b>  <img src="'+ img + '" width="80" height="80"><a href=' 
-                + item.url +'>' + item.title +'</a> </div><hr>'
+                + item.link +'>' + item.title +'</a> </div><hr>'
         )
         i = i +1;
         if(i==5) exit;
@@ -227,20 +227,20 @@ function getAll(){
 }
 
 function fillAll(newData){
-    console.log('newdata: ',newData);
+    
     i = 0;
     newData.forEach(function (item) {
         img = 'static/images/'+item.img;
         if(i==0){
             $("#tinnoibat").append(
-                '<img src="'+ img +'" class="img2"> <br><a href="' + item.url +'" class="a1"> <h2>'+ item.title
+                '<img src="'+ img +'" class="img2"> <br><a href="' + item.link +'" class="a1"> <h2>'+ item.title
                 +' </h2> </a>'
         )
         }
         
-        
+        console.log(item.url)
         $("#dungbolo").append(
-            '<span> <img src="' + img +'" width="200" height="200"> <a href=' + item.url +'> <h2> '+ item.title+'</h2></a> <br>' + item.content+
+            '<span> <img src="' + img +'" width="200" height="200"> <a href="' + item.link +'""> <h2> '+ item.title+'</h2></a> <br>' + item.content+
   '<br> <p>6 phút trước</p> </span> <br><hr><br>'
         )
         i = i +1;
