@@ -7,3 +7,4 @@ class News(models.Model):
     content = models.TextField()
     link = models.TextField()
     category = models.TextField()
+    img = models.TextField()

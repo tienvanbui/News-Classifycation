@@ -30,6 +30,7 @@ AI web project news classification
 -pip install nltk
 -pip install keras
 -pip install tensorflow
+-pip install matplotlib
 -pip install pymysql
 -pip install djangorestframework
 
