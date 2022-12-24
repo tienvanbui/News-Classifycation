@@ -33,6 +33,7 @@ AI web project news classification
 -pip install matplotlib
 -pip install pymysql
 -pip install djangorestframework
+-python -m pip install mysql-connector-python
 
 8. On the terminal background run the command "py manage.py runserver"
 

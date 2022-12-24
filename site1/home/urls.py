@@ -8,6 +8,7 @@ urlpatterns = [
     
     path('',  views.index1),
     path('home',  views.index_home),
+    path('loginpass',  views.loginpass),
     path('phanloai',  views.index),
     path('dangnhap',  views.dangnhap),
     path('dangky',  views.dangky),
