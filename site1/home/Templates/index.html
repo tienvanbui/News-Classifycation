@@ -1,0 +1,252 @@
+{% load static %}
+
+
+<!doctype html>
+<html>
+
+<head>
+    <link rel="shortcut icon">
+    <link rel="stylesheet" href="{%static 'css/css2.css'%}">
+    <script src="{%static 'js/index.js'%}"></script>
+    <meta charset="utf-8">
+    <title>HOME</title>
+</head>
+
+<body bgcolor="#EEEEEE">
+    <div id="wrap">
+        <div id="header"><br>
+            <h2 class="h2">Website ENEWS</h2>
+            
+            <input type="submit" value="">
+            <form>
+                <input type="text" name="search" placeholder="Search news">
+            </form>
+        </div>
+        <div id="menu">
+            <div class="ul">
+                <ul>
+                    <h3>
+                        <li> <a href="home" id="a1"> HOME</a></li>
+                        <li> <a href="phanloai" id="a1"> Classify </a> </li>
+
+                    </h3>
+                </ul>
+            </div>
+            <div class="dk"> <a href="dangky"> Register</a> ||<a href="dangnhap"> Log In</a> </div>
+        </div>
+        <br>
+        <div id="noidung">
+            <div id="contend">
+                <div class="div121">
+                    <div class="div1211">
+                        <h3 class="divtb">
+                            <a href="dangnhap.html">
+                                <p>Hot News
+                        </h3>
+                        
+                        </a> 
+                        <div id="tinnoibat">
+                            
+                        </div>
+                        <!-- <br> Nếu cảm thấy Windows 10 của bạn khởi động quá lâu, hãy xem ngay bài viết này.-->
+                    </div>
+                    
+                    <div class="div1212"> <b> Sport News <img src="{%static 'images/hot.gif'%}" width="30" height="30"></b> <br>
+                        <br>
+                        <marquee id="listSport" onmouseover="this.stop()" direction="up" onmouseout="this.start()" Scroll scrollamount="5">
+                            
+                        </marquee>
+                    </div>
+                    <br>
+                    <a href="http://shopee.vn/cuahangit36" class="a1"> <img src="{%static 'images/banner.png'%}" class="img4"></a>
+                </div>
+                <h3 class="divtb">
+                    <a href="dangnhap.html">
+                        <p> DON'T MISS
+                </h3>
+                
+                
+                <div id="dungbolo"></div>
+                </a> 
+                <br>
+                
+                </div>
+                <!-- <hr>
+                <div class="docnhieu">
+                    <hr>
+                    <center>
+                        <h3 class="divtb">
+                            <marquee>
+                                <p>TIN ĐỌC NHIỀU
+                            </marquee>
+                        </h3>
+                    </center>
+                    <div> <img src="../ima/a6.jpg" width="200" height="200"> <a href="#">Top ứng dụng Android đang miễn phí và giảm giá </a> </div>
+                    <div> <img src="../ima/a7.jpg" width="200" height="200"> <a href="#">8 ứng dụng iPhone có thể khóa bằng Touch ID hoặc Face ID </a> </div>
+                    <div> <img src="../ima/a8.png" width="200" height="200"> <a href="#">Cách hủy kết bạn Facebook ảo hàng loạt </a> </div>
+                </div> -->
+                <hr>
+            </div>
+            <div id="right"> <img src="https://cdn.fptshop.com.vn/Uploads/Originals/2019/2/28/636869719313136991_H2.png" class="qc1"> <br>
+                <br>
+                <img src="{%static 'images/qc4.png'%}" class="qc4"> <br>
+                <img src="{%static 'images/qc3.gif'%}" width="300" height="250"> <br>
+                <br>
+                <b>Tin video<b>
+  <video controls height="200" width="300">
+    <source src="{%static 'videos/1.mp4'%}" type="video/mp4">
+  </video>
+  <br>
+  <br>
+  <h3> TECH NEWS</h3>
+  <br>
+  <div id="technews">
+  
+  </div>
+  <br>
+  <img src="{%static 'images/vivo.jpg'%}" width="300" height="400"> </div>  </div>
+<br>
+
+<div id="footer">
+    <div class="divft1">
+      <p>&nbsp;</p>
+      <p><a href="home"> HOME</a></p>
+    </div>
+    <div class="divft">
+        <h4>ENEWS-HDU </h4>
+        <a href="#">Tech</a> <br>
+        <a href="#">Business</a> <br>
+        <a href="#">Media</a> <br>
+        <a href="#">Travel</a> <br>
+        <a href="#">Weather</a><br>
+        <a href="#">Sport</a> <br>
+        <a href="#">Films</a> <br>
+    </div>
+    <div class="divft">
+        <h4>LINK </h4>
+        <a href="#">NEWS</a> <br>
+        <a href="#">BREAKINGS NEWS</a> <br>
+        <a href="#">Google</a> 
+    </div>
+    <div class="divft">
+        <h4>ABOUT ME</h4>
+        <a href="#"> Facebook</a> <br>
+        <a href="#"> Youtube</a> <br>
+        <a href="#"> Google</a> <br>
+        <a href="#"> Skype</a> </div>
+    <div class="divft2"> <br>
+        <hr>
+        <br>
+        <h4> Nhóm thực hiện KHMT2-K14 <br>
+        </h4>
+    </div>
+</div>
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    newData = [];
+    $(document).ready(function() {
+        
+        fillNew();
+    });
+    function fillNew(){
+    getListNews('Sport');
+    getTech('Tech');
+    getAll();
+}
+    function getListNews(category){
+    
+    $.ajax({
+                    type: 'GET',
+                    dataType:"json",
+                    url: 'http://127.0.0.1:8000/api/news/"'+ category + '"',
+                    
+                    success: function (data, status, xhr) {
+                        newData = data;
+                        fillData(data);
+                    }
+            });
+}
+
+function fillData(newData){
+    
+    newData.forEach(function (item) {
+        $("#listSport").append(
+            '<a href=' +  item.link +'>' + item.title + '</a>'+
+                            '<hr></hr>'
+        )
+    });
+}
+
+
+
+function getTech(category){
+    
+    $.ajax({
+                    type: 'GET',
+                    dataType:"json",
+                    url: 'http://127.0.0.1:8000/api/news/"'+ category + '"',
+                    
+                    success: function (data, status, xhr) {
+                        newData = data;
+                        fillTech(data);
+                    }
+            });
+}
+
+function fillTech(newData){
+    
+    i = 0;
+    newData.forEach(function (item) {
+        img = 'static/images/'+item.img;
+        
+        $("#technews").append(
+            '<div id="r1"> <b>  <img src="'+ img + '" width="80" height="80"><a href=' 
+                + item.link +'>' + item.title +'</a> </div><hr>'
+        )
+        i = i +1;
+        if(i==5) exit;
+    });
+}
+
+function getAll(){
+    
+    $.ajax({
+                    type: 'GET',
+                    dataType:"json",
+                    url: 'http://127.0.0.1:8000/news/',
+                    
+                    success: function (data, status, xhr) {
+                        newData = data;
+                        fillAll(data);
+                    }
+            });
+}
+
+function fillAll(newData){
+    
+    i = 0;
+    newData.forEach(function (item) {
+        img = 'static/images/'+item.img;
+        if(i==0){
+            $("#tinnoibat").append(
+                '<img src="'+ img +'" class="img2"> <br><a href="' + item.link +'" class="a1"> <h2>'+ item.title
+                +' </h2> </a>'
+        )
+        }
+        
+        console.log(item.url)
+        $("#dungbolo").append(
+            '<span> <img src="' + img +'" width="200" height="200"> <a href="' + item.link +'""> <h2> '+ item.title+'</h2></a> <br>' + item.content+
+  '<br> <p>6 phút trước</p> </span> <br><hr><br>'
+        )
+        i = i +1;
+        if(i==5) exit;
+    
+    });
+}
+</script>
+

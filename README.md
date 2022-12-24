@@ -30,6 +30,9 @@ AI web project news classification
 -pip install nltk
 -pip install keras
 -pip install tensorflow
+-pip install matplotlib
+-pip install pymysql
+-pip install djangorestframework
 
 8. On the terminal background run the command "py manage.py runserver"
 
@@ -65,6 +68,7 @@ AI web project news classification
 -pip install nltk
 -pip install keras
 -pip install tensorflow
+-pip install matplotlib
 
 
 8.Trên nền terminal chạy câu lệnh "py manage.py runserver"
