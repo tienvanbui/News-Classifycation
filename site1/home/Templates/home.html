@@ -121,34 +121,40 @@
     $(document).ready(function() {
         $("#classify").on("click", function(){
             var news = $("#paragraph").val();
-            $.ajax({
-                type: "POST",
-                url : '/classify',
-                dataType: 'json',
-                data: {
-                    news: news
-                },
-                beforeSend: function(){
-                    $("#loading").show().addClass("");
-                },
-                complete: function() {
-                    $("#loading").hide();
-                },
-                success: function(response){
-                    $("#loading").hide();
-                    $("#completion").show();
-                    if (response.message != null) {
-                        $("#notification").text(response.message);
+            if(news == ''){
+                alert("Không được để trống");
+            }
+            else{
+                $.ajax({
+                    type: "POST",
+                    url : '/classify',
+                    dataType: 'json',
+                    data: {
+                        news: news
+                    },
+                    beforeSend: function(){
+                        $("#loading").show().addClass("");
+                    },
+                    complete: function() {
+                        $("#loading").hide();
+                    },
+                    success: function(response){
+                        $("#loading").hide();
+                        $("#completion").show();
+                        if (response.message != null) {
+                            $("#notification").text(response.message);
+                        }
+                        $("#result").text(response.category);
+                        $("#category").text(response.category);
+                        $('.table_of-category').show();
+                        links = 'http://127.0.0.1:8000/api/news/"'+ response.category + '"';
+                        console.log(links);
+                        getListNews(links);
+                        
                     }
-                    $("#result").text(response.category);
-                    $("#category").text(response.category);
-                    $('.table_of-category').show();
-                    links = 'http://127.0.0.1:8000/api/news/"'+ response.category + '"';
-                    console.log(links);
-                    getListNews(links);
-                    
-                }
-            });
+                });
+            }
+            
         });
     });
     

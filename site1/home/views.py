@@ -33,12 +33,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # sử dụng bộ lọc kí tự đặc biệt
 
 # Create your views here.
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="123456",
-  database="db_dacn"
-)
+
 
 def downloadPackage():
     nltk.download('stopwords')
