@@ -27,12 +27,18 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from .serializers import GetAllNewsSerializer
 from .models import News
+import mysql.connector
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # sử dụng bộ lọc kí tự đặc biệt
 
 # Create your views here.
-
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="123456",
+  database="db_dacn"
+)
 
 def downloadPackage():
     nltk.download('stopwords')
@@ -58,6 +64,8 @@ def index1(request):
     return render(request, 'index.html')
 def index_home(request):
     return render(request, 'index.html')
+def loginpass(request):
+    return render(request, 'loginpass.html')
 def dangnhap(request):
     return render(request, 'dangnhap.html')
 def dangky(request):

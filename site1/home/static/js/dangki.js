@@ -10,64 +10,64 @@ function KiemTra()
 	var nmk = window.document.dangky.txtNhapLaiMK.value;
 	if(ht.length==0)
 	{
-		window.alert(" Ban chua nhap ho ten ");
+		window.alert("You have not entered your name ");
 		window.document.dangky.txtHoTen.focus();
 		return false;
 	}
 	if (email.length==0) {
-	alert("Email không được để trống");
+	alert("Email cannot be blank");
 	return false;
 	}
 	else if ((aCong<1) || (dauCham<aCong+2) || (dauCham+2>email.length)) {
-	alert("Email bạn điền không chính xác");
+	alert("The email you entered is incorrect");
 	return false;
 	}
 
 	if(nam.length==0)
 	{
-		window.alert(" Ban chua nhap nam sinh");
+		window.alert("You have not entered the year of birth");
 		window.document.dangky.txtNam.focus();
 		return false;
 	}
 	else if(isNaN(nam)==true){
-		window.alert("Nam sinh phai la so");
+		window.alert("Year of birth must be a number");
 		window.document.dangky.txtHoTen.focus();
 		return false;
 	}
 	
 	if(ten.length==0)
 	{
-		window.alert(" Ban chua nhap ten Tai khoan ");
+		window.alert(" You have not signed up yet ");
 		window.document.dangky.txtHoTen.focus();
 		return false;
 	}
 	if (mk.length==0)
 		{
-		window.alert("Mat khau khong duoc de trong");
+		window.alert("Password can not be blank");
 		document.dangky.txtMatKhau.focus();
 		return false;
 		}
 
 	 if (mk.length < 5)
 		{
-		window.alert("Mat khau ngan qua.");
+		window.alert("Password is too short");
 		document.dangky.txtMatKhau.focus();
 		return false;
 		}
 	if(nmk.length==0)
 		{
-		window.alert("Mat khau go lại khong duoc de trong!");
+		window.alert("Confirmation password cannot be blank!");
 		document.dangky.txtNhapLaiMK.focus();
 		return false;
 		}
 		
 	else if (mk!=nmk)
 		{
-		window.alert("Mat khau go lai khong dung.");
+		window.alert("Confirmation password is incorrect");
 		document.dangky.txtNhapLaiMK.focus();
 		return false;
 		}
 	if (mk=nmk)
-	window.alert("ĐĂNG KÍ THÀNH CÔNG");
+	window.alert("SUCCESSFUL REGISTRATION");
 	
 }
