@@ -15,8 +15,8 @@ AI web project news classification
 
 
 4.Open the Project under the link News-Classifycation/site1
-
-
+C1: Open project xong chạy terminal gõ cd site1
+C2: Open site1 bên trong project
 5.Open terminal by path YourPath/News-Classifycation/site1>
 
 
